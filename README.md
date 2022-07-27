@@ -50,6 +50,7 @@ Diagrama com a relação de todas as tabelas que serão utilizadas para o funcio
 ### 4.1.3) Otimização de Hiperparâmetros dos Modelos
 ### 4.1.4) Monitoramento dos Modelos
 ### 4.1.5) Re-treino Automático
+### 4.1.6) Atualização real-time
 
 ## 4.2) Front-end
 ### 4.2.1) Plataforma

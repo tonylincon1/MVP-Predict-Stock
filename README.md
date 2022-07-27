@@ -7,40 +7,40 @@ Diante desse problema, sentimos a necessidade de ajudar os hospitais, clínicas 
 O MVP do Search Stock tem como objetivo ter algumas funcionalidades que compõe o produto como um todo afim de realizar a validação da ideia. Esse MVP conterá apenas a algumas funcionalidades de back-end da inteligência que faz as predições de pedido de materiais/medicamentos e uma interface com o mínimo de funcionalidade para apresentar principalmente alguns resultados utilizando dados fictícios.
 
 # 3) Features/Estruturas Previstas no MVP
-## 3.1) Back-end (Status: Em desenvolvimento)
-### 3.1.1) Identificação da Curva ABC (Status: Em desenvolvimento)
+## 3.1) Back-end (Status: Em desenvolvimento🛠️)
+### 3.1.1) Identificação da Curva ABC (Status: Em desenvolvimento🛠️)
 Cálculos (Volume multiplicado pelo custo) e classificação dos itens que estão na curva ABC ('A' representa 80% do custo, 'B' representa 15% do custo e 'C' representa 5% do custo).
 
-### 3.1.2) Cálculo de Baseline de Pedido (Status: Em desenvolvimento)
+### 3.1.2) Cálculo de Baseline de Pedido (Status: Em desenvolvimento🛠️)
 Cálculos considerando outros métodos de pedido menos eficientes, como por exemplo média móvel, para serem comparados com os modelos atuais.
 
-### 3.1.3) Preparação dos Dados (Status: Em desenvolvimento)
+### 3.1.3) Preparação dos Dados (Status: Em desenvolvimento🛠️)
 Pré-processamento, transformações e outros tratamentos envolvendo os dados de consumo do estoque antes do processo de treinamento.
 
-### 3.1.4) Treinamento dos Modelos (Status: Em desenvolvimento)
+### 3.1.4) Treinamento dos Modelos (Status: Em desenvolvimento🛠️)
 Treinamento de diferentes tipos de modelos de séries temporais e verificação do melhor modelos para cada item de consumo do estoque.
 
-### 3.1.5) Predições (Status: Em desenvolvimento)
+### 3.1.5) Predições (Status: Em desenvolvimento🛠️)
 Utilizando o modelo treinado, essa funcionalidade irá chamar as predições dos itens de consumo para datas futuras.
 
-## 3.2) Front-end (Interface com Resultados - Streamlit) (Status: Em desenvolvimento)
-### 3.2.1) Tela de Diagnóstico de Estoque (Status: Em desenvolvimento)
+## 3.2) Front-end (Interface com Resultados - Streamlit) (Status: Em desenvolvimento🛠️)
+### 3.2.1) Tela de Diagnóstico de Estoque (Status: Em desenvolvimento🛠️)
 Diagnóstico contendo a diferença entre utilizar a IA para realizar as previsões com previsões de 3 meses futuros.
 
-### 3.2.2) Tela com Dados de Redução Economica & Estoque (Status: Em desenvolvimento)
+### 3.2.2) Tela com Dados de Redução Economica & Estoque (Status: Em desenvolvimento🛠️)
 Detalhamento do ganho financeiro e da economia do volume de estoque.
 
-### 3.2.3) Tela com Deadline de Itens com Risco de Passar da Validade (Status: Em desenvolvimento)
+### 3.2.3) Tela com Deadline de Itens com Risco de Passar da Validade (Status: Em desenvolvimento🛠️)
 Detalhamento da régua dos itens que estão prestes a passar da validade.
 
-### 3.2.4) Tela com Relatório de Pedido (Status: Em desenvolvimento)
+### 3.2.4) Tela com Relatório de Pedido (Status: Em desenvolvimento🛠️)
 Detalhamento da lista de pedidos que precisa ser feito de acordo com as predições do modelo.
 
-## 3.3) Estrutura/Bancos de Dados (Status: Em desenvolvimento)
-### 3.3.1) Formato dos Dados do Cliente (Status: Em desenvolvimento)
+## 3.3) Estrutura/Bancos de Dados (Status: Em desenvolvimento🛠️)
+### 3.3.1) Formato dos Dados do Cliente (Status: Em desenvolvimento🛠️)
 Estrutura e formato dos dados dos clientes que precisam ser adaptados para o funcionamento do MVP.
 
-### 3.3.2) Diagrama Relacional (Status: Em desenvolvimento)
+### 3.3.2) Diagrama Relacional (Status: Em desenvolvimento🛠️)
 Diagrama com a relação de todas as tabelas que serão utilizadas para o funcionamento do MVP.
 
 # 4) Features/Estruturas Não Previstas no MVP, Mas Previstas no Produto

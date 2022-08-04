@@ -8,19 +8,23 @@ O MVP do Search Stock tem como objetivo ter algumas funcionalidades que compõe 
 
 # 3) Features/Estruturas Previstas no MVP
 ## 3.1) Back-end (Status: Em desenvolvimento🛠️)
-### 3.1.1) Identificação da Curva ABC (Status: Em desenvolvimento🛠️)
+
+### 3.1.1) Conector com Tabelas de Dados (Status: Em desenvolvimento🛠️)
+Objeto que irá servir para conectar, salvar, carregar e excluir tabelas e dados que serão utilizados no processamento.
+
+### 3.1.2) Identificação da Curva ABC (Status: Em desenvolvimento🛠️)
 Cálculos (Volume multiplicado pelo custo) e classificação dos itens que estão na curva ABC ('A' representa 80% do custo, 'B' representa 15% do custo e 'C' representa 5% do custo).
 
-### 3.1.2) Cálculo de Baseline de Pedido (Status: Em desenvolvimento🛠️)
+### 3.1.3) Cálculo de Baseline de Pedido (Status: Em desenvolvimento🛠️)
 Cálculos considerando outros métodos de pedido menos eficientes, como por exemplo média móvel, para serem comparados com os modelos atuais.
 
-### 3.1.3) Preparação dos Dados (Status: Em desenvolvimento🛠️)
+### 3.1.4) Preparação dos Dados (Status: Em desenvolvimento🛠️)
 Pré-processamento, transformações e outros tratamentos envolvendo os dados de consumo do estoque antes do processo de treinamento.
 
-### 3.1.4) Treinamento dos Modelos (Status: Em desenvolvimento🛠️)
+### 3.1.5) Treinamento dos Modelos (Status: Em desenvolvimento🛠️)
 Treinamento de diferentes tipos de modelos de séries temporais e verificação do melhor modelos para cada item de consumo do estoque.
 
-### 3.1.5) Predições (Status: Em desenvolvimento🛠️)
+### 3.1.6) Predições (Status: Em desenvolvimento🛠️)
 Utilizando o modelo treinado, essa funcionalidade irá chamar as predições dos itens de consumo para datas futuras.
 
 ## 3.2) Front-end (Interface com Resultados - Streamlit) (Status: Em desenvolvimento🛠️)

@@ -47,7 +47,7 @@ Estrutura e formato dos dados dos clientes que precisam ser adaptados para o fun
 
 ### 3.3.2) Diagrama Relacional (Status: Em desenvolvimento🛠️)
 Diagrama com a relação de todas as tabelas que serão utilizadas para o funcionamento do MVP.
-![image](data/diagrams_data/MVP Predict Stock.png)
+![image](data/diagrams_data/MVP%20Predict%20Stock.png)
 
 # 4) Features/Estruturas Não Previstas no MVP, Mas Previstas no Produto
 ## 4.1) Back-end

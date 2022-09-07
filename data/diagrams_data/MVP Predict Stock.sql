@@ -1,6 +1,8 @@
 CREATE SCHEMA `ingestion`;
 
-CREATE TABLE `ingestion`.`itens_describe` (
+CREATE SCHEMA `processed`;
+
+CREATE TABLE `ingestion`.`itens_describe_mvp` (
   `NUMERO_REGISTRO_PRODUTO` integer,
   `IDENTIFICADOR_DO_ITEM` integer,
   `NOME_PRODUTO` string,
@@ -9,7 +11,7 @@ CREATE TABLE `ingestion`.`itens_describe` (
   `CLASSE_TERAPEUTICA` string
 );
 
-CREATE TABLE `ingestion`.`itens_input` (
+CREATE TABLE `ingestion`.`itens_input_mvp` (
   `NUMERO_REGISTRO_PRODUTO` integer,
   `IDENTIFICADOR_DO_ITEM` integer,
   `NOME_PRODUTO` string,
@@ -20,7 +22,7 @@ CREATE TABLE `ingestion`.`itens_input` (
   `CUSTO_DE_AQUISICAO` integer
 );
 
-CREATE TABLE `ingestion`.`itens_output` (
+CREATE TABLE `ingestion`.`itens_output_mvp` (
   `NUMERO_REGISTRO_PRODUTO` integer,
   `IDENTIFICADOR_DO_ITEM` integer,
   `NOME_PRODUTO` string,
@@ -28,6 +30,27 @@ CREATE TABLE `ingestion`.`itens_output` (
   `QUANTIDADE` integer
 );
 
-ALTER TABLE `ingestion`.`itens_input` ADD FOREIGN KEY (`IDENTIFICADOR_DO_ITEM`) REFERENCES `ingestion`.`itens_describe` (`IDENTIFICADOR_DO_ITEM`);
+CREATE TABLE `processed`.`curve_ABC` (
+  `NUMERO_REGISTRO_PRODUTO` integer,
+  `QUANTIDADE` integer,
+  `CUSTO_DE_AQUISICAO` integer,
+  `VALOR_ABSOLUTO` integer,
+  `PERCENTUAL_ABSOLUTO` integer,
+  `PERCENTUAL_ABSOLUTO_ACUMULADO` integer,
+  `CLASSIFICACAO_ABC` string
+);
 
-ALTER TABLE `ingestion`.`itens_output` ADD FOREIGN KEY (`IDENTIFICADOR_DO_ITEM`) REFERENCES `ingestion`.`itens_describe` (`IDENTIFICADOR_DO_ITEM`);
+CREATE TABLE `processed`.`predict` (
+  `NUMERO_REGISTRO_PRODUTO` integer,
+  `DATA_DE_ENTRADA_DO_ITEM` datetime,
+  `QUANTIDADE_REAL` integer,
+  `PREDICAO_MEDIA_MOVEL` float
+);
+
+ALTER TABLE `ingestion`.`itens_input_mvp` ADD FOREIGN KEY (`NUMERO_REGISTRO_PRODUTO`) REFERENCES `ingestion`.`itens_describe_mvp` (`NUMERO_REGISTRO_PRODUTO`);
+
+ALTER TABLE `ingestion`.`itens_output_mvp` ADD FOREIGN KEY (`NUMERO_REGISTRO_PRODUTO`) REFERENCES `ingestion`.`itens_describe_mvp` (`NUMERO_REGISTRO_PRODUTO`);
+
+ALTER TABLE `processed`.`curve_ABC` ADD FOREIGN KEY (`NUMERO_REGISTRO_PRODUTO`) REFERENCES `ingestion`.`itens_describe_mvp` (`NUMERO_REGISTRO_PRODUTO`);
+
+ALTER TABLE `processed`.`predict` ADD FOREIGN KEY (`NUMERO_REGISTRO_PRODUTO`) REFERENCES `ingestion`.`itens_describe_mvp` (`NUMERO_REGISTRO_PRODUTO`);

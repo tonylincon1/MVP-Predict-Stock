@@ -19,14 +19,17 @@ Cálculos (Volume multiplicado pelo custo) e classificação dos itens que estã
 ### 3.1.3) Cálculo de Baseline de Pedido (Status: Desenvolvido ✅ | src.predict_stock_mvp.predict.methods_predict)
 Cálculos considerando outros métodos de pedido menos eficientes, como por exemplo média móvel, para serem comparados com os modelos atuais.
 
-### 3.1.4) Preparação dos Dados (Status: Em desenvolvimento🛠️)
+### 3.1.4) Preparação dos Dados (Status: Desenvolvido ✅ | src.predict_stock_mvp.pre_train.pre_process)
 Pré-processamento, transformações e outros tratamentos envolvendo os dados de consumo do estoque antes do processo de treinamento.
 
-### 3.1.5) Treinamento dos Modelos (Status: Em desenvolvimento🛠️)
+### 3.1.5) Treinamento dos Modelos (Status: Desenvolvido ✅ | src.predict_stock_mvp.train.train)
 Treinamento de diferentes tipos de modelos de séries temporais e verificação do melhor modelos para cada item de consumo do estoque.
 
 ### 3.1.6) Predições (Status: Em desenvolvimento🛠️)
 Utilizando o modelo treinado, essa funcionalidade irá chamar as predições dos itens de consumo para datas futuras.
+
+### 3.1.7) Avaliação (Status: Em desenvolvimento🛠️)
+Após a predição, essa funcionalidade irá chamar as predições dos itens de consumo e comparar com os dados reais e obter uma série de indicadores dos modelos.
 
 ## 3.2) Front-end (Interface com Resultados) (Status: Em desenvolvimento🛠️)
 ### 3.2.1) Tela de Diagnóstico de Estoque (Status: Em desenvolvimento🛠️)

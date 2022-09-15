@@ -25,7 +25,7 @@ Pré-processamento, transformações e outros tratamentos envolvendo os dados de
 ### 3.1.5) Treinamento dos Modelos (Status: Desenvolvido ✅ | src.predict_stock_mvp.train.train)
 Treinamento de diferentes tipos de modelos de séries temporais e verificação do melhor modelos para cada item de consumo do estoque.
 
-### 3.1.6) Predições (Status: Em desenvolvimento🛠️)
+### 3.1.6) Predições (Status: Desenvolvido ✅ | src.predict_stock_mvp.predict.methods_predict)
 Utilizando o modelo treinado, essa funcionalidade irá chamar as predições dos itens de consumo para datas futuras.
 
 ### 3.1.7) Avaliação (Status: Em desenvolvimento🛠️)
@@ -52,18 +52,25 @@ Estrutura e formato dos dados dos clientes que precisam ser adaptados para o fun
 Diagrama com a relação de todas as tabelas que serão utilizadas para o funcionamento do MVP.
 ![image](data/diagrams_data/MVP%20Predict%20Stock.png)
 
-# 4) Features/Estruturas Não Previstas no MVP, Mas Previstas no Produto
-## 4.1) Back-end
-### 4.1.1) Sistema de Usuários
-### 4.1.2) Sistema de Envio de Alertas
-### 4.1.3) Otimização de Hiperparâmetros dos Modelos
-### 4.1.4) Monitoramento dos Modelos
-### 4.1.5) Re-treino Automático
-### 4.1.6) Atualização real-time
+# 4) Pipelines de Execução do Sistema
+## 4.1) Treinamento - pipeline_train (Status: Em desenvolvimento🛠️)
+Essa pipeline de treinamento será executada apenas uma única vez, pois a ideia é que quando houver uma implementação o modelo seja treinado com os dados do cliente (*Futuramente será criado o processo de re-treino automático, que será uma outra pipeline)
 
-## 4.2) Front-end
-### 4.2.1) Plataforma
+## 4.2) Predição - pipeline_predict (Status: Em desenvolvimento🛠️)
+Essa pipeline de predição será executada com recorrência (Idealmente mensalmente), pois irá para todos os modelos disponíveis executar a predição do próximo período (Idealmente será predição mensal) para cada item do estoque e gerar o próximo pedido + todos os outros indicadores que serão alimentados no sistema.
 
-## 4.3) Estrutura/Bancos de Dados
-### 4.3.1) Criação da Estrutura do Banco
-### 4.3.2) Criação do ETL
+# 5) Features/Estruturas Não Previstas no MVP, Mas Previstas no Produto
+## 5.1) Back-end
+### 5.1.1) Sistema de Usuários
+### 5.1.2) Sistema de Envio de Alertas
+### 5.1.3) Otimização de Hiperparâmetros dos Modelos
+### 5.1.4) Monitoramento dos Modelos
+### 5.1.5) Re-treino Automático
+### 5.1.6) Atualização real-time
+
+## 5.2) Front-end
+### 5.2.1) Plataforma
+
+## 5.3) Estrutura/Bancos de Dados
+### 5.3.1) Criação da Estrutura do Banco
+### 5.3.2) Criação do ETL

@@ -9,15 +9,15 @@ class train_model:
     Classe para realizar treinamento dos modelos para séries temporais.
     """
     
-    def train_deepAR(data_train, freq="M", prediction_length=6, context_length=16, num_layers=2, num_cells=50, learning_rate=0.01, epochs=10):
+    def train_deepAR(data_train, freq="M", prediction_length=3, context_length=21, num_layers=2, num_cells=50, learning_rate=0.01, epochs=10):
         """
         Função para treinamento do modelo deepAR.
 
         Args:
             data_train (PandasDataset): PandasDataset com dados de treinamento.
             freq (str, optional): Frequência da predição, exemplos: M -> Mês, D -> Dia. Defaults to "M".
-            prediction_length (int, optional): Meses que o modelo irá prever. Defaults to 6.
-            context_length (int, optional): O número de pontos de tempo (Vai depender da agregação) que o modelo consegue ver antes de fazer a previsão. Defaults to 16.
+            prediction_length (int, optional): Meses que o modelo irá prever. Defaults to 3.
+            context_length (int, optional): O número de pontos de tempo (Vai depender da agregação) que o modelo consegue ver antes de fazer a previsão. Defaults to 21.
             num_layers (int, optional): O número de camadas ocultas na RNN. Defaults to 2.
             num_cells (int, optional): O número de células a serem usadas em cada camada oculta da RNN. Defaults to 50.
             learning_rate (float, optional): Taxa de aprendizado. Defaults to 0.01.

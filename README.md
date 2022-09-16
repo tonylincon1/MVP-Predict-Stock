@@ -7,7 +7,7 @@ Diante desse problema, sentimos a necessidade de ajudar os hospitais, clínicas 
 O MVP do Predict Stock tem como objetivo ter algumas funcionalidades que compõe o produto como um todo afim de realizar a validação da ideia. Esse MVP conterá apenas a algumas funcionalidades de back-end da inteligência que faz as predições de pedido de materiais/medicamentos e uma interface com o mínimo de funcionalidade para apresentar principalmente alguns resultados utilizando dados fictícios.
 
 # 3) Features/Estruturas Previstas no MVP
-## 3.1) Back-end (Status: Em desenvolvimento🛠️)
+## 3.1) Back-end (Status: Desenvolvido ✅)
 
 ### 3.1.1) Conector com Tabelas de Dados (Status: Desenvolvido ✅ | src.predict_stock_mvp.pre_train.load_data.conect_data)
 Objeto que irá servir para conectar, salvar, carregar e excluir tabelas e dados que serão utilizados no processamento.
@@ -28,45 +28,49 @@ Treinamento de diferentes tipos de modelos de séries temporais e verificação 
 ### 3.1.6) Predições (Status: Desenvolvido ✅ | src.predict_stock_mvp.predict.methods_predict)
 Utilizando o modelo treinado, essa funcionalidade irá chamar as predições dos itens de consumo para datas futuras.
 
-### 3.1.7) Avaliação (Status: Em desenvolvimento🛠️)
+### 3.1.7) Avaliação (Status: Desenvolvido ✅ | src.predict_stock_mvp.metrics.calcule_metrics)
 Após a predição, essa funcionalidade irá chamar as predições dos itens de consumo e comparar com os dados reais e obter uma série de indicadores dos modelos.
 
-## 3.2) Front-end (Interface com Resultados) (Status: Em desenvolvimento🛠️)
-### 3.2.1) Tela de Diagnóstico de Estoque (Status: Em desenvolvimento🛠️)
-Diagnóstico contendo a diferença entre utilizar a IA para realizar as previsões com previsões de 3 meses futuros.
+### 3.1.8) Cálculo de Receita (Status: Desenvolvido ✅ | src.predict_stock_mvp.metrics.revenue)
+Com as predições finalizadas, essa classe calcula qual a receita para cada mês de predição de cada modelo.
 
-### 3.2.2) Tela com Dados de Redução Economica & Estoque (Status: Em desenvolvimento🛠️)
-Detalhamento do ganho financeiro e da economia do volume de estoque.
+## 3.2) Pipelines de Execução do Sistema
+### 3.2.1) Treinamento - pipeline_train (Status: Em desenvolvimento🛠️)
+Essa pipeline de treinamento será executada apenas uma única vez, pois a ideia é que quando houver uma implementação o modelo seja treinado com os dados do cliente (*Futuramente será criado o processo de re-treino automático, que será uma outra pipeline)
 
-### 3.2.3) Tela com Deadline de Itens com Risco de Passar da Validade (Status: Em desenvolvimento🛠️)
-Detalhamento da régua dos itens que estão prestes a passar da validade.
+### 3.2.2) Predição - pipeline_predict (Status: Em desenvolvimento🛠️)
+Essa pipeline de predição será executada com recorrência (Idealmente mensalmente), pois irá para todos os modelos disponíveis executar a predição do próximo período (Idealmente será predição mensal) para cada item do estoque e gerar o próximo pedido + todos os outros indicadores que serão alimentados no sistema.
 
-### 3.2.4) Tela com Relatório de Pedido (Status: Em desenvolvimento🛠️)
-Detalhamento da lista de pedidos que precisa ser feito de acordo com as predições do modelo.
-
-## 3.3) Estrutura/Bancos de Dados (Status: Em desenvolvimento🛠️)
-### 3.3.1) Formato dos Dados do Cliente (Status: Em desenvolvimento🛠️)
+## 3.3) Estrutura/Bancos de Dados (Status: Desenvolvido ✅)
+### 3.3.1) Formato dos Dados do Cliente (Status: Desenvolvido ✅)
 Estrutura e formato dos dados dos clientes que precisam ser adaptados para o funcionamento do MVP.
+![image](data/diagrams_data/Input%20de%20Dados%20Predict%20Stock.png)
 
-### 3.3.2) Diagrama Relacional (Status: Em desenvolvimento🛠️)
+### 3.3.2) Diagrama Relacional (Status: Desenvolvido ✅)
 Diagrama com a relação de todas as tabelas que serão utilizadas para o funcionamento do MVP.
 ![image](data/diagrams_data/MVP%20Predict%20Stock.png)
 
-# 4) Pipelines de Execução do Sistema
-## 4.1) Treinamento - pipeline_train (Status: Em desenvolvimento🛠️)
-Essa pipeline de treinamento será executada apenas uma única vez, pois a ideia é que quando houver uma implementação o modelo seja treinado com os dados do cliente (*Futuramente será criado o processo de re-treino automático, que será uma outra pipeline)
+## 3.4) Front-end (Interface com Resultados) (Status: Em desenvolvimento🛠️)
+### 3.4.1) Tela de Diagnóstico de Estoque (Status: Em desenvolvimento🛠️)
+Diagnóstico contendo a diferença entre utilizar a IA para realizar as previsões com previsões de 3 meses futuros.
 
-## 4.2) Predição - pipeline_predict (Status: Em desenvolvimento🛠️)
-Essa pipeline de predição será executada com recorrência (Idealmente mensalmente), pois irá para todos os modelos disponíveis executar a predição do próximo período (Idealmente será predição mensal) para cada item do estoque e gerar o próximo pedido + todos os outros indicadores que serão alimentados no sistema.
+### 3.4.2) Tela com Dados de Redução Economica & Estoque (Status: Em desenvolvimento🛠️)
+Detalhamento do ganho financeiro e da economia do volume de estoque.
 
-# 5) Features/Estruturas Não Previstas no MVP, Mas Previstas no Produto
-## 5.1) Back-end
-### 5.1.1) Sistema de Usuários
-### 5.1.2) Sistema de Envio de Alertas
-### 5.1.3) Otimização de Hiperparâmetros dos Modelos
-### 5.1.4) Monitoramento dos Modelos
-### 5.1.5) Re-treino Automático
-### 5.1.6) Atualização real-time
+### 3.4.3) Tela com Deadline de Itens com Risco de Passar da Validade (Status: Em desenvolvimento🛠️)
+Detalhamento da régua dos itens que estão prestes a passar da validade.
+
+### 3.4.4) Tela com Relatório de Pedido (Status: Em desenvolvimento🛠️)
+Detalhamento da lista de pedidos que precisa ser feito de acordo com as predições do modelo.
+
+# 4) Features/Estruturas Não Previstas no MVP, Mas Previstas no Produto
+## 4.1) Back-end
+### 4.1.1) Sistema de Usuários
+### 4.1.2) Sistema de Envio de Alertas
+### 4.1.3) Otimização de Hiperparâmetros dos Modelos
+### 4.1.4) Monitoramento dos Modelos
+### 4.1.5) Re-treino Automático
+### 4.1.6) Atualização real-time
 
 ## 5.2) Front-end
 ### 5.2.1) Plataforma

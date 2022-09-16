@@ -48,7 +48,7 @@ Estrutura e formato dos dados dos clientes que precisam ser adaptados para o fun
 
 ### 3.3.2) Diagrama Relacional (Status: Desenvolvido ✅)
 Diagrama com a relação de todas as tabelas que serão utilizadas para o funcionamento do MVP.
-![image](data/diagrams_data/MVP%20Predict%20Stock.png)
+![image](data/diagrams_data/MVP%20Predict%20Stock1.png)
 
 ## 3.4) Front-end (Interface com Resultados) (Status: Em desenvolvimento🛠️)
 ### 3.4.1) Tela de Diagnóstico de Estoque (Status: Em desenvolvimento🛠️)

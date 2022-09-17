@@ -1,6 +1,6 @@
 import pandas as pd
 
-class conect_data():
+class conect_data:
     """
     Classe feita para carregar, salvar e deletar tabelas.
     

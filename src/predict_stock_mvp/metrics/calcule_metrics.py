@@ -1,11 +1,9 @@
-import sys
 import pandas as pd
 import numpy as np
 from datetime import date, datetime
 from gluonts.evaluation import Evaluator
 from gluonts.model.forecast import SampleForecast
-sys.path.insert(1, '../pre_train/')
-import load_data
+from src.predict_stock_mvp.pre_train.load_data import *
 
 class metrics_models:
     """
@@ -13,7 +11,7 @@ class metrics_models:
     
     """
     
-    def metrics_media_movel(tss,quant_itens,periodo,freq="M",table_predict=load_data.conect_data.load_table('../../../data/data_processed/', 'processed.predict', 'csv', sep=",")):
+    def metrics_media_movel(tss,quant_itens,periodo,freq="M",table_predict=conect_data.load_table('data/data_processed/', 'processed.predict', 'csv', sep=",")):
         """
         Método para calcular métricas de desempenho do modelo de média móvel.
 
@@ -54,9 +52,9 @@ class metrics_models:
                                           "Coverage[0.5]":"Coverage_median",
                                           "wQuantileLoss[0.5]":"wQuantileLoss_median"}))
         
-        metrics = pd.concat([load_data.conect_data.load_table('../../../data/data_processed/', 'processed.metrics', 'csv', sep=None),metrics])
+        metrics = pd.concat([conect_data.load_table('data/data_processed/', 'processed.metrics', 'csv', sep=None),metrics])
         
-        load_data.conect_data.save_table(metrics, '../../../data/data_processed/', 'processed.metrics', 'csv')
+        conect_data.save_table(metrics, 'data/data_processed/', 'processed.metrics', 'csv')
     
     def metrics_DeepAR(tss, forecasts,quant_itens):
         """
@@ -87,6 +85,6 @@ class metrics_models:
                                           "Coverage[0.5]":"Coverage_median",
                                           "wQuantileLoss[0.5]":"wQuantileLoss_median"}))
         
-        metrics = pd.concat([load_data.conect_data.load_table('../../../data/data_processed/', 'processed.metrics', 'csv', sep=None),metrics])
+        metrics = pd.concat([conect_data.load_table('data/data_processed/', 'processed.metrics', 'csv', sep=None),metrics])
         
-        load_data.conect_data.save_table(metrics, '../../../data/data_processed/', 'processed.metrics', 'csv')
+        conect_data.save_table(metrics, 'data/data_processed/', 'processed.metrics', 'csv')

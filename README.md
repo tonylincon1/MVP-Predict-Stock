@@ -34,11 +34,11 @@ Após a predição, essa funcionalidade irá chamar as predições dos itens de 
 ### 3.1.8) Cálculo de Receita (Status: Desenvolvido ✅ | src.predict_stock_mvp.metrics.revenue)
 Com as predições finalizadas, essa classe calcula qual a receita para cada mês de predição de cada modelo.
 
-## 3.2) Pipelines de Execução do Sistema
-### 3.2.1) Treinamento - pipeline_train (Status: Em desenvolvimento🛠️)
+## 3.2) Pipelines de Execução do Sistema (Status: Desenvolvido ✅)
+### 3.2.1) Treinamento - pipeline_train (Status: Desenvolvido ✅ | pipeline_train)
 Essa pipeline de treinamento será executada apenas uma única vez, pois a ideia é que quando houver uma implementação o modelo seja treinado com os dados do cliente (*Futuramente será criado o processo de re-treino automático, que será uma outra pipeline)
 
-### 3.2.2) Predição - pipeline_predict (Status: Em desenvolvimento🛠️)
+### 3.2.2) Predição - pipeline_predict (Status: Desenvolvido ✅| pipeline_predict)
 Essa pipeline de predição será executada com recorrência (Idealmente mensalmente), pois irá para todos os modelos disponíveis executar a predição do próximo período (Idealmente será predição mensal) para cada item do estoque e gerar o próximo pedido + todos os outros indicadores que serão alimentados no sistema.
 
 ## 3.3) Estrutura/Bancos de Dados (Status: Desenvolvido ✅)

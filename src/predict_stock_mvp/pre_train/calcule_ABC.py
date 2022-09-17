@@ -1,5 +1,5 @@
-import load_data
 from datetime import datetime
+from src.predict_stock_mvp.pre_train.load_data import *
 from dateutil.relativedelta import relativedelta
 
 class calcule_curve_ABC:
@@ -7,7 +7,7 @@ class calcule_curve_ABC:
     Classe que classifica cada item na curva ABC e salva uma tabela processada.
     """
     
-    def curve_ABC(data=load_data.conect_data.load_table('../../../data/data_ingestion/', 'ingestion.itens_input_mvp', 'csv', sep=None)):
+    def curve_ABC(data=conect_data.load_table('data/data_ingestion/', 'ingestion.itens_input_mvp', 'csv', sep=None)):
         """
         Método que classifica cada item na curva ABC e salva uma tabela processada.
 
@@ -35,4 +35,4 @@ class calcule_curve_ABC:
         data_ABC["CLASSIFICACAO_ABC"] = ABC
         data_ABC = data_ABC.reset_index()
         
-        load_data.conect_data.save_table(data_ABC, '../../../data/data_processed/', 'processed.curve_ABC', 'csv')
+        conect_data.save_table(data_ABC, 'data/data_processed/', 'processed.curve_ABC', 'csv')

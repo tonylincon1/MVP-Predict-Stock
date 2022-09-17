@@ -1,6 +1,4 @@
-import sys
-sys.path.insert(1, '../pre_train/')
-import load_data
+from src.predict_stock_mvp.pre_train.load_data import *
 import pandas as pd
 from gluonts.evaluation.backtest import make_evaluation_predictions
 from tqdm import tqdm
@@ -10,7 +8,7 @@ class methods_predict:
     Classe que contém métodos para realizar as predições, tanto dos modelos quanto das outras técnicas para comparação.
     """
     
-    def predict_model_deepAR(data_test, data_predict=load_data.conect_data.load_table('../../../data/data_processed/', 'processed.predict', 'csv', sep=None), name_predictor="deepAR_model"):
+    def predict_model_deepAR(data_test, data_predict=conect_data.load_table('data/data_processed/', 'processed.predict', 'csv', sep=None), name_predictor="deepAR_model"):
         """
         Método que calcula a predição baseado no modelo DeepAR.
 
@@ -19,7 +17,7 @@ class methods_predict:
             data_predict (Dataframe, optional): Tabela referência para salvar predições. Defaults to load_data.conect_data.save_table(table_predict, '../../../data/data_processed/', 'processed.predict', 'csv')
             name_predictor (String, optional): Nome do modelo DeepAR
         """
-        predictor = pd.read_pickle(f"../../../data/models/{name_predictor}.pickle")
+        predictor = pd.read_pickle(f"data/models/{name_predictor}.pickle")
         forecast_it, ts_it = make_evaluation_predictions(dataset=data_test, predictor=predictor, num_samples=100)
         forecasts = list(forecast_it)
         tss = list(ts_it)
@@ -28,7 +26,7 @@ class methods_predict:
             if n.find(str(forecasts[0].start_date)) == 0:
                 filtro = n
                 break
-                
+            
         data_input = data_predict.query(f"DATA_DE_CONSUMO >= '{filtro}'")
         lista = []
         contador_itens = 0
@@ -43,9 +41,10 @@ class methods_predict:
         
         table_predict = pd.concat([data_input,data_predict.query(f"DATA_DE_CONSUMO < '{filtro}'")]).sort_values(by=["NUMERO_REGISTRO_PRODUTO",
                                                                                                                   "DATA_DE_CONSUMO"])
-        load_data.conect_data.save_table(table_predict, '../../../data/data_processed/', 'processed.predict', 'csv')
+        conect_data.save_table(table_predict, 'data/data_processed/', 'processed.predict', 'csv')
+        return forecasts, tss
     
-    def predict_mean(data=load_data.conect_data.load_table('../../../data/data_ingestion/', 'ingestion.itens_output_mvp', 'csv', sep=None)):
+    def predict_mean(data=conect_data.load_table('data/data_ingestion/', 'ingestion.itens_output_mvp', 'csv', sep=None)):
         """
         Método que calcula a predição baseado na média móvel.
 
@@ -63,4 +62,4 @@ class methods_predict:
                 
         data_predict_media_movel["PREDICAO_MEDIA_MOVEL"] = predict_media
         
-        load_data.conect_data.save_table(data_predict_media_movel, '../../../data/data_processed/', 'processed.predict', 'csv')
+        conect_data.save_table(data_predict_media_movel, 'data/data_processed/', 'processed.predict', 'csv')

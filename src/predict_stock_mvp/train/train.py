@@ -38,7 +38,7 @@ class train_model:
                                                     callbacks=callbacks))
 
         predictor = estimator.train(data_train)
-        pd.to_pickle(predictor,'../../../data/models/deepAR_model.pickle' )
+        pd.to_pickle(predictor,'data/models/deepAR_model.pickle' )
         
     def train_outhers_models():
         pass

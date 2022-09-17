@@ -1,5 +1,5 @@
 import pandas as pd
-import load_data
+from src.predict_stock_mvp.pre_train.load_data import *
 from datetime import date, datetime
 from gluonts.dataset.pandas import PandasDataset
 
@@ -7,7 +7,7 @@ class pre_process:
     """
     Classe feita para realizar o pré processamento dos dados para as IAs de séries temporais.
     """
-    def pre_process_deepar(data=load_data.conect_data.load_table('../../../data/data_ingestion/', 'ingestion.itens_output_mvp', 'csv', sep=None), prediction_length = 6):
+    def pre_process_deepar(data=conect_data.load_table('data/data_ingestion/', 'ingestion.itens_output_mvp', 'csv', sep=None), prediction_length = 6):
         """
         Função para pré processar, em treinamento e teste, os dados da série temporal no formato de input do modelo deepAR.
 
@@ -32,7 +32,7 @@ class pre_process:
         
         return train, test
     
-    def pre_process_deepar_predict(data=load_data.conect_data.load_table('../../../data/data_ingestion/', 'ingestion.itens_output_mvp', 'csv', sep=None)):
+    def pre_process_deepar_predict(data=conect_data.load_table('data/data_ingestion/', 'ingestion.itens_output_mvp', 'csv', sep=None)):
         """
         Função para pré processar, para predição, os dados da série temporal no formato de input do modelo deepAR.
 

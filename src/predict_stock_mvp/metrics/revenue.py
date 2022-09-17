@@ -1,14 +1,12 @@
-import sys
 import pandas as pd
-sys.path.insert(1, '../pre_train/')
-import load_data
+from src.predict_stock_mvp.pre_train.load_data import *
 
 class revenue:
     """
     Classe para calcular impacto de redução de custo para as modelagens.
     """
     
-    def calcule_revenue (data_predict=load_data.conect_data.load_table('../../../data/data_processed/', 'processed.predict', 'csv', sep=None), data_value=load_data.conect_data.load_table('../../../data/data_ingestion/', 'ingestion.itens_input_mvp', 'csv', sep=None)):
+    def calcule_revenue (data_predict=conect_data.load_table('data/data_processed/', 'processed.predict', 'csv', sep=None), data_value=conect_data.load_table('data/data_ingestion/', 'ingestion.itens_input_mvp', 'csv', sep=None)):
         """
         Método para calcular o valor financeiro de cada mês para todos os métodos de predição.
 
@@ -45,4 +43,4 @@ class revenue:
         receita_calculada = pd.DataFrame(receita, columns=['NUMERO_REGISTRO_PRODUTO','DATA_DE_CONSUMO','CUSTO_MEDIA_MOVEL','CUSTO_DEEPAR'])
         
         merge_1 = pd.merge(merge,receita_calculada,how='left',on=['NUMERO_REGISTRO_PRODUTO','DATA_DE_CONSUMO'])
-        load_data.conect_data.save_table(merge_1, '../../../data/data_processed/', 'processed.revenue', 'csv')
+        conect_data.save_table(merge_1, 'data/data_processed/', 'processed.revenue', 'csv')
